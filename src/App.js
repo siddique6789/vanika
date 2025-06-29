@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 import SocialButtons from "./components/SocialButtons";
 
 function App() {
@@ -21,15 +22,26 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
-      <SocialButtons /> {/* ✅ Fixed button visible on all pages */}
+      {/* ✅ Flex column layout that fills screen */}
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar />
+
+        {/* ✅ This section grows to fill available space */}
+        <div className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
+
+      {/* Floating WhatsApp & Instagram buttons */}
+      <SocialButtons />
     </BrowserRouter>
   );
 }
