@@ -54,25 +54,27 @@ export default function Navbar() {
               data-bs-dismiss="offcanvas"
             ></button>
           </div>
-          <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 text-end">
+
+          {/* ✅ Centered, larger, vertical menu */}
+          <div className="offcanvas-body d-flex flex-column align-items-center justify-content-center text-center">
+            <ul className="navbar-nav gap-3">
               <li className="nav-item">
-                <a className="nav-link text-white" href="/">Home</a>
+                <a className="nav-link text-white fs-5 fw-semibold" href="/">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/products">Products</a>
+                <a className="nav-link text-white fs-5 fw-semibold" href="/products">Products</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/about">About Us</a>
+                <a className="nav-link text-white fs-5 fw-semibold" href="/about">About Us</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/contact">Contact</a>
+                <a className="nav-link text-white fs-5 fw-semibold" href="/contact">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/login"><FaUser /></a>
+                <a className="nav-link text-white fs-4" href="/login"><FaUser /></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/cart"><FaShoppingCart /></a>
+                <a className="nav-link text-white fs-4" href="/cart"><FaShoppingCart /></a>
               </li>
             </ul>
           </div>
