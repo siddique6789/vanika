@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // ✅ Required for routing
 import Banner from "../components/Banner";
 
 export default function Home() {
@@ -47,9 +48,11 @@ export default function Home() {
         <div className="container text-center">
           <h2 className="mb-4" data-aos="fade-down">Available Sizes</h2>
           <div className="row justify-content-center g-4">
+
             {/* Product Card 1 */}
             <div className="col-md-3" data-aos="fade-up" data-aos-delay="100">
-              <div className="card h-100 shadow-sm">
+              <div className="card h-100 shadow-sm position-relative">
+                <Link to="/product/1" className="stretched-link"></Link>
                 <img
                   src="/images/100ml.jpg"
                   className="card-img-top"
@@ -59,14 +62,14 @@ export default function Home() {
                 <div className="card-body">
                   <h5 className="card-title">100 ml</h5>
                   <p className="card-text">₹260/-</p>
-                  <button className="btn btn-success">Add to Cart</button>
                 </div>
               </div>
             </div>
 
             {/* Product Card 2 */}
             <div className="col-md-3" data-aos="fade-up" data-aos-delay="300">
-              <div className="card h-100 shadow-sm">
+              <div className="card h-100 shadow-sm position-relative">
+                <Link to="/product/2" className="stretched-link"></Link>
                 <img
                   src="/images/200ml.jpg"
                   className="card-img-top"
@@ -76,10 +79,10 @@ export default function Home() {
                 <div className="card-body">
                   <h5 className="card-title">200 ml</h5>
                   <p className="card-text">₹460/-</p>
-                  <button className="btn btn-success">Add to Cart</button>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

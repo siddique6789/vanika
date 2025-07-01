@@ -1,7 +1,13 @@
 import React from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
+
+  const { cartItems } = useCart();
+
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
       <div className="container-fluid">
@@ -23,10 +29,28 @@ export default function Navbar() {
               <a className="nav-link text-white" href="/contact">Contact</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="/login"><FaUser /></a>
+              <a className="nav-link text-white" href="/login"><FaUser size={22}/></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="/cart"><FaShoppingCart /></a>
+            <a href="/cart" className="nav-link text-white">
+              <div style={{ position: "relative", display: "inline-block" }}>
+                <FaShoppingCart size={22} />
+                {cartCount > 0 && (
+                  <span
+                    className="badge bg-danger rounded-pill"
+                    style={{
+                      position: "absolute",
+                      top: "-6px",
+                      right: "-10px",
+                      fontSize: "0.6rem",
+                      padding: "2px 6px",
+                    }}
+                  >
+                    {cartCount}
+                  </span>
+                )}
+              </div>
+            </a>
             </li>
           </ul>
         </div>
@@ -71,10 +95,28 @@ export default function Navbar() {
                 <a className="nav-link text-white fs-5 fw-semibold" href="/contact">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white fs-4" href="/login"><FaUser /></a>
+                <a className="nav-link text-white fs-4" href="/login"><FaUser size={22}/></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white fs-4" href="/cart"><FaShoppingCart /></a>
+              <a href="/cart" className="nav-link text-white">
+                <div style={{ position: "relative", display: "inline-block" }}>
+                  <FaShoppingCart size={22} />
+                  {cartCount > 0 && (
+                    <span
+                      className="badge bg-danger rounded-pill"
+                      style={{
+                        position: "absolute",
+                        top: "-6px",
+                        right: "-10px",
+                        fontSize: "0.6rem",
+                        padding: "2px 6px",
+                      }}
+                    >
+                      {cartCount}
+                    </span>
+                  )}
+                </div>
+              </a>
               </li>
             </ul>
           </div>
